@@ -1,6 +1,6 @@
 import {Schema} from "mongoose";
-import User = require("../mongoose/user");
-import DataAccess = require("./../dataaccess");
+import IUser = require("../mongoose/User");
+import DataAccess = require("./../dataAccess");
 
 const mongoose = DataAccess.mongooseInstance;
 const mongooseConnection = DataAccess.mongooseConnection;
@@ -9,6 +9,9 @@ class UserSchema {
     static get schema() {
 
         const user = new Schema({
+                contact: {
+                    type: String
+                },
                 email: {
                     type: String
                 },
@@ -16,6 +19,9 @@ class UserSchema {
                     type: String
                 },
                 lastName: {
+                    type: String
+                },
+                password: {
                     type: String
                 },
             },
@@ -26,5 +32,5 @@ class UserSchema {
         return user;
     }
 }
-const userSchema = mongooseConnection.model<User>("User", UserSchema.schema);
+const userSchema = mongooseConnection.model<IUser>("User", UserSchema.schema);
 export = userSchema;

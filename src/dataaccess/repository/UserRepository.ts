@@ -1,9 +1,9 @@
-import UserSchema = require("../schemas/UserSchema");
-import User = require("./../mongoose/user");
+import UserSchema = require("../schemas/userSchema");
+import IUser = require("./../mongoose/User");
 
 import RepositoryBase = require("./base/repository.base");
 
-class UserRepository extends RepositoryBase<User> {
+class UserRepository extends RepositoryBase<IUser> {
 
   constructor() {
     super(UserSchema);

@@ -1,5 +1,5 @@
 {
-  "name": "typescript-nodejs-express-seed",
+  "name": "nodelearn",
   "version": "1.0.0",
   "description": "Basic NodeJs Express seed project with Typescript",
   "main": "dist/app.js",
@@ -10,8 +10,8 @@
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Swapnil Nakhate",
-  "license": "ISC",
+  "author": "Tanajee",
+  "license": "MIT",
   "dependencies": {
     "@types/compression": "0.0.36",
     "@types/cors": "^2.8.4",
@@ -32,5 +32,18 @@
     "@types/node": "^11.11.1",
     "tslint": "^5.13.1",
     "typescript": "^3.3.3333"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanaji710/node-learning.git"
+  },
+  "keywords": [
+    "node",
+    "example",
+    "heroku"
+  ],
+  "bugs": {
+    "url": "https://github.com/tanaji710/node-learning/issues"
+  },
+  "homepage": "https://github.com/tanaji710/node-learning#readme"
 }
