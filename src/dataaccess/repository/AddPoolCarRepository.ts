@@ -1,15 +1,15 @@
-import PoolCarSchema = require("../schemas/addpoolcarSchema");
+import AddpoolcarSchema = require("../schemas/addpoolcarSchema");
 import IAddPoolCar = require("./../mongoose/AddPoolCar");
 
 import RepositoryBase = require("./base/repository.base");
 
-class PoolCarRepository extends RepositoryBase<IAddPoolCar> {
+class AddPoolCarRepository extends RepositoryBase<IAddPoolCar> {
 
     constructor() {
-        super(PoolCarSchema);
+        super(AddpoolcarSchema);
     }
 
 }
 
-Object.seal(PoolCarSchema);
-export = PoolCarRepository;
+Object.seal(AddpoolcarSchema);
+export = AddPoolCarRepository;

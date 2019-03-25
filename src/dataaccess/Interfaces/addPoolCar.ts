@@ -6,4 +6,6 @@ export interface IPoolCar {
     contact?: string;
     poolId?: string;
     UserId?: string;
+    accepted?: boolean;
+    pickupPoint?: string;
 }

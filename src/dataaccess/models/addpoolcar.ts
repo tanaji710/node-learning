@@ -6,6 +6,8 @@ class Addpoolcar {
    public contact: string;
    public poolId: string;
   public  UserId: string;
+  public accepted: boolean;
+  public pickupPoint: string;
     constructor() {}
 }
 export = Addpoolcar;

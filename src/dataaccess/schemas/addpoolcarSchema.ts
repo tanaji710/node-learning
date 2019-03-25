@@ -12,6 +12,9 @@ class AddpoolcarSchema {
                 UserId: {
                     type: String
                 },
+                accepted: {
+                    type: Boolean
+                },
                 addharNo: {
                     type: Number
                 },
@@ -19,6 +22,9 @@ class AddpoolcarSchema {
                     type: String
                 },
                 name: {
+                    type: String
+                },
+                pickupPoint: {
                     type: String
                 },
                 poolId: {
@@ -32,5 +38,5 @@ class AddpoolcarSchema {
         return user;
     }
 }
-const poolCarSchema = mongooseConnection.model<IAddPoolCar>("AddPoolCar", AddpoolcarSchema.schema);
-export = poolCarSchema;
+const addpoolcarSchema = mongooseConnection.model<IAddPoolCar>("AddPoolCar", AddpoolcarSchema.schema);
+export = addpoolcarSchema;

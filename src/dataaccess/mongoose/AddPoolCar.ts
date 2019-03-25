@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose";
-import poolCarModal = require("./../models/addpoolcar");
+import Addpoolcar = require("./../models/addpoolcar");
 
-interface IAddPoolCar extends poolCarModal, mongoose.Document {
+interface IAddPoolCar extends Addpoolcar, mongoose.Document {
     _id: string;
 }
 export = IAddPoolCar;

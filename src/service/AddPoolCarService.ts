@@ -1,17 +1,17 @@
 import {UserInfo} from "os";
-import Poolcar = require("../dataaccess/mongoose/AddPoolCar");
-import PoolCarRepository = require("../dataaccess/repository/AddPoolCarRepository");
+import IAddPoolCar = require("../dataaccess/mongoose/AddPoolCar");
+import AddPoolCarRepository = require("../dataaccess/repository/AddPoolCarRepository");
 
 class AddPoolCarService {
 
-    private userRepository: PoolCarRepository;
+    private addpoolCarRepository: AddPoolCarRepository;
 
     constructor() {
-        this.userRepository = new PoolCarRepository();
+        this.addpoolCarRepository = new AddPoolCarRepository();
     }
 
-    public createAddPoolCarDataa(addcarpool: Poolcar, callback: (error: any, response: any) => void) {
-        this.userRepository.create(addcarpool, (error, result) => {
+    public createAddPoolCarData(addcarpool: IAddPoolCar, callback: (error: any, response: any) => void) {
+        this.addpoolCarRepository.create(addcarpool, (error, result) => {
             if (error) {
                 callback(error, null);
             } else {
@@ -21,7 +21,37 @@ class AddPoolCarService {
     }
 
     public getAllAddPoolCarData(callback: (error: any, response: any) => void) {
-        this.userRepository.retrieve({}, (error, result) => {
+        this.addpoolCarRepository.retrieve({}, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public getAddPoolCarDataById(carId: any, callback: (error: any, response: any) => void) {
+        this.addpoolCarRepository.findById(carId, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public updateAddPoolCarData(carId: any, updatedUser: IAddPoolCar, callback: (error: any, response: any) => void) {
+        this.addpoolCarRepository.update(carId, updatedUser, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public deleteAddPoolCarDataId(carId: any, callback: (error: any, response: any) => void) {
+        this.addpoolCarRepository.deleteById(carId, (error, result) => {
             if (error) {
                 callback(error, null);
             } else {
