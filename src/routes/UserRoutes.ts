@@ -16,6 +16,7 @@ class UserRoutes {
         router.get("/:id", this.userController.getUserById);
         router.put("/:id", this.userController.updateUserById);
         router.delete("/:id", this.userController.deleteUserById);
+        router.post("/login", this.userController.login);
         return router;
     }
 }

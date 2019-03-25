@@ -23,6 +23,26 @@ class UserController {
         }
     }
 
+    public login(req: express.Request, res: express.Response, next: express.NextFunction): void {
+        try {
+            const user = req.body;
+            const userService = new UserService();
+            userService.login(user, (error , result) => {
+                if (error) {
+                    res.send(error);
+                } else {
+                    if (result.length > 0) {
+                        res.send(result);
+                    } else {
+                        res.send({ message : "User Not found." });
+                    }
+                }
+            });
+        } catch (e) {
+            console.log("Exception in creating User Data : ", e);
+        }
+    }
+
     public getAllUsers(req: express.Request, res: express.Response, next: express.NextFunction): void {
         try {
             const userService = new UserService();

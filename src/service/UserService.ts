@@ -30,6 +30,17 @@ class UserService {
         });
     }
 
+    public login(user: any, callback: (error: any, response: any) => void) {
+        const query = { email : user.email, password: user.password};
+        this.userRepository.retrieve(query, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
     public getUserById(userId: any, callback: (error: any, response: any) => void) {
         this.userRepository.findById(userId, (error, result) => {
             if (error) {
