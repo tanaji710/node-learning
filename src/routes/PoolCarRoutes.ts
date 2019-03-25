@@ -13,6 +13,9 @@ class UserRoutes {
     get routes(): express.Router {
         router.post("/", this.poolcarController.createPoolCar);
         router.get("/", this.poolcarController.getAllPoolCars);
+        router.get("/:id", this.poolcarController.getPoolCarById);
+        router.put("/:id", this.poolcarController.updatePoolCarById);
+        router.delete("/:id", this.poolcarController.deletePoolCarById);
         return router;
     }
 }

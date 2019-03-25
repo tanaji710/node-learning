@@ -29,6 +29,36 @@ class PoolCarService {
             }
         });
     }
+
+    public getPoolCarDataById(carId: any, callback: (error: any, response: any) => void) {
+        this.poolCarRepository.findById(carId, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public updatePoolCarData(carId: any, updatedUser: IPoolCar, callback: (error: any, response: any) => void) {
+        this.poolCarRepository.update(carId, updatedUser, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public deletePoolCarDataId(carId: any, callback: (error: any, response: any) => void) {
+        this.poolCarRepository.deleteById(carId, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
 }
 
 Object.seal(PoolCarService);

@@ -31,12 +31,21 @@ class UserService {
     }
 
     public login(user: any, callback: (error: any, response: any) => void) {
-        const query = { email : user.email, password: user.password};
+        const query = { email : user.email };
         this.userRepository.retrieve(query, (error, result) => {
             if (error) {
                 callback(error, null);
             } else {
-                callback(null, result);
+                if (result.length > 0) {
+                    console.log("result : " + JSON.stringify(result));
+                    if (result[0].password === user.password) {
+                        callback(null, result);
+                    } else {
+                        callback({ message : "Invalid Credentials"}, null);
+                    }
+                } else {
+                    callback({ message : "User Not Found"}, null);
+                }
             }
         });
     }
