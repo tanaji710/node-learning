@@ -1,4 +1,3 @@
-import DateTimeFormat = Intl.DateTimeFormat;
 
 class Poolcar {
     public carName: string;

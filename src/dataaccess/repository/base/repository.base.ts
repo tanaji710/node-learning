@@ -31,6 +31,36 @@ class RepositoryBase<T extends mongoose.Document> implements IRead<T>, IWrite<T>
     });
   }
 
+  public findById(id: any, callback: (error: any, result: any) => void) {
+    this.schemaModel.findById({_id: id}, (error: Error, result: T) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        callback(null, result);
+      }
+    });
+  }
+
+  public update(id: any, newObject: any, callback: (error: any, result: any) => void) {
+    this.schemaModel.findOneAndUpdate({_id: id}, newObject, { new : true} , (error: Error, result: T) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        callback(null, result);
+      }
+    });
+  }
+
+  public deleteById(id: any, callback: (error: any, result: any) => void) {
+    this.schemaModel.findByIdAndRemove({_id: id}, (error: Error, result: T) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        callback(null, result);
+      }
+    });
+  }
+
 }
 
 export = RepositoryBase;

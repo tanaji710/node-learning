@@ -29,6 +29,36 @@ class UserService {
             }
         });
     }
+
+    public getUserById(userId: any, callback: (error: any, response: any) => void) {
+        this.userRepository.findById(userId, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public updateUserData(userId: any, updatedUser: User, callback: (error: any, response: any) => void) {
+        this.userRepository.update(userId, updatedUser, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
+    public deleteUserById(userId: any, callback: (error: any, response: any) => void) {
+        this.userRepository.deleteById(userId, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
 }
 
 Object.seal(UserService);

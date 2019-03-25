@@ -1,17 +1,17 @@
 import {UserInfo} from "os";
-import Poolcar = require("../dataaccess/mongoose/PoolCar");
+import IPoolCar = require("../dataaccess/mongoose/PoolCar");
 import PoolCarRepository = require("../dataaccess/repository/PoolCarRepository");
 
 class PoolCarService {
 
-    private userRepository: PoolCarRepository;
+    private poolCarRepository: PoolCarRepository;
 
     constructor() {
-        this.userRepository = new PoolCarRepository();
+        this.poolCarRepository = new PoolCarRepository();
     }
 
-    public createPoolCarData(carpool: Poolcar, callback: (error: any, response: any) => void) {
-        this.userRepository.create(carpool, (error, result) => {
+    public createPoolCarData(carpool: IPoolCar, callback: (error: any, response: any) => void) {
+        this.poolCarRepository.create(carpool, (error, result) => {
             if (error) {
                 callback(error, null);
             } else {
@@ -21,7 +21,7 @@ class PoolCarService {
     }
 
     public getAllPoolCarData(callback: (error: any, response: any) => void) {
-        this.userRepository.retrieve({}, (error, result) => {
+        this.poolCarRepository.retrieve({}, (error, result) => {
             if (error) {
                 callback(error, null);
             } else {
