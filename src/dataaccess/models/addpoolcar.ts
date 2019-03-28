@@ -7,6 +7,7 @@ class Addpoolcar {
    public poolId: string;
   public  UserId: string;
   public accepted: boolean;
+  public rejected: boolean;
   public pickupPoint: string;
     constructor() {}
 }

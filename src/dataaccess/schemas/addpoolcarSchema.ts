@@ -30,6 +30,9 @@ class AddpoolcarSchema {
                 poolId: {
                     type: String
                 },
+                rejected: {
+                    type: String
+                },
             },
             {
                 timestamps: true,

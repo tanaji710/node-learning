@@ -7,5 +7,6 @@ export interface IPoolCar {
     poolId?: string;
     UserId?: string;
     accepted?: boolean;
+    rejected?: boolean;
     pickupPoint?: string;
 }
