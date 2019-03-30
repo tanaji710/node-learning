@@ -1,10 +1,13 @@
 import * as express from "express";
+import MailerService = require("../service/MailerService");
 import UserService = require("../service/UserService");
 
 class UserController {
     private localUserService: UserService;
+    private mailerService: MailerService;
     constructor() {
         this.localUserService = new UserService();
+        this.mailerService = new MailerService();
     }
 
     public createUser(req: express.Request, res: express.Response, next: express.NextFunction): void {
@@ -104,6 +107,23 @@ class UserController {
             });
         } catch (e) {
             console.log("Exception in deleting User By Id.", e);
+        }
+    }
+
+    public sendMailToUser(req: express.Request, res: express.Response, next: express.NextFunction): void {
+        try {
+            const mailerService = new MailerService();
+            const mailerDetails = req.body;
+            mailerService.send(mailerDetails.email, mailerDetails.subject,
+                mailerDetails.body, (error, result) => {
+                if (error) {
+                    res.send(error);
+                } else {
+                    res.send(result);
+                }
+            });
+        } catch (e) {
+            console.log("Exception in sending mail to user.", e);
         }
     }
 }
