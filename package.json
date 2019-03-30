@@ -16,6 +16,7 @@
     "@types/compression": "0.0.36",
     "@types/cors": "^2.8.4",
     "@types/method-override": "0.0.31",
+    "@types/nodemailer": "^4.6.7",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
@@ -23,6 +24,7 @@
     "method-override": "^3.0.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.19",
+    "nodemailer": "^6.0.0",
     "nodemon": "^1.18.10"
   },
   "devDependencies": {
