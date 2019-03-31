@@ -9,6 +9,7 @@ class Addpoolcar {
   public accepted: boolean;
   public rejected: boolean;
   public pickupPoint: string;
+  public status: string;
     constructor() {}
 }
 export = Addpoolcar;

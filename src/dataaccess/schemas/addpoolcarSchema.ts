@@ -33,6 +33,9 @@ class AddpoolcarSchema {
                 rejected: {
                     type: String
                 },
+                status: {
+                    type: String
+                },
             },
             {
                 timestamps: true,

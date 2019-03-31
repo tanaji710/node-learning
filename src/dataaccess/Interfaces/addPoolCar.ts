@@ -9,4 +9,5 @@ export interface IPoolCar {
     accepted?: boolean;
     rejected?: boolean;
     pickupPoint?: string;
+    status?: string;
 }
